@@ -3,8 +3,10 @@ import Countryitem from "./Countryitem";
 
 import Spinner from "./Spinner";
 import Message from "./Message";
+import { useCities } from "../../context/CitiesContext";
 
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+  const { isLoading, cities } = useCities();
   if (isLoading) return <Spinner />;
   const country = cities.reduce((arr, city) => {
     if (!arr.map((el) => el.country).includes(city.country)) {
